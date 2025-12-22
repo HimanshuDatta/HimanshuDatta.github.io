@@ -327,44 +327,32 @@
             color: #555;
         }
 
-        /* Education Timeline - Horizontal */
+        /* Education Timeline - Flexible Card Design */
         .timeline {
-            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 80px;
-            left: 10%;
-            right: 10%;
-            height: 4px;
-            background: linear-gradient(90deg, #0f2027 0%, #2c5364 100%);
-            border-radius: 2px;
+            padding: 2rem 0;
         }
 
         .timeline-item {
             position: relative;
-            width: 30%;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .timeline-content {
-            width: 100%;
             background: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid #2c5364;
         }
 
         .timeline-content:hover {
@@ -372,60 +360,48 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
-        .timeline-dot {
-            width: 24px;
-            height: 24px;
-            background: #2c5364;
-            border: 5px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px #2c5364;
-            z-index: 1;
-            margin-top: 68px;
-        }
-
         .timeline-date {
             background: #2c5364;
             color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
-            white-space: nowrap;
-            margin-bottom: 0.5rem;
+            align-self: flex-start;
+            margin-bottom: 1rem;
         }
 
         .timeline-content h3 {
-            color: #2c5364;
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
         .timeline-content .degree {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-            text-align: center;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2c5364;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
         }
 
         .timeline-content .university {
             color: #666;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-size: 0.95rem;
-            text-align: center;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .timeline-content .gpa {
             display: inline-block;
             background: #f0f0f0;
-            padding: 0.4rem 1rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
             color: #2c5364;
             font-weight: 600;
-            margin-top: 0.8rem;
+            margin-top: auto;
+            align-self: flex-start;
         }
 
         /* Rotating Skills */
@@ -604,9 +580,8 @@
         <h2 class="section-title">Education Journey</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-date">2013 - 2017</div>
-                <div class="timeline-dot"></div>
                 <div class="timeline-content">
+                    <div class="timeline-date">2013 - 2017</div>
                     <h3>🎓</h3>
                     <div class="degree">Bachelor of Technology</div>
                     <div class="university">Computer Science and Engineering</div>
@@ -616,9 +591,8 @@
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">2019 - 2021</div>
-                <div class="timeline-dot"></div>
                 <div class="timeline-content">
+                    <div class="timeline-date">2019 - 2021</div>
                     <h3>🗽</h3>
                     <div class="degree">Master of Science</div>
                     <div class="university">Management of Technology</div>
@@ -628,9 +602,8 @@
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">2024 - 2026</div>
-                <div class="timeline-dot"></div>
                 <div class="timeline-content">
+                    <div class="timeline-date">2024 - 2026</div>
                     <h3>📚</h3>
                     <div class="degree">Master of Business Administration</div>
                     <div class="university">New England College</div>
