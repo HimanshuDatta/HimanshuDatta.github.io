@@ -286,6 +286,134 @@
             color: #555;
         }
 
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #0f2027 0%, #2c5364 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #2c5364;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #2c5364;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -30px;
+            background: #2c5364;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .timeline-content h3 {
+            color: #2c5364;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .university {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .gpa {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #2c5364;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Rotating Skills */
+        .rotating-skills {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            min-height: 5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .skill-word {
+            display: inline-block;
+            font-weight: 700;
+            color: #4fd1c5;
+            text-shadow: 0 2px 10px rgba(79, 209, 197, 0.5);
+            animation: fadeInOut 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: translateY(10px); }
+            10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -373,12 +501,17 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero .subtitle { font-size: 1.2rem; }
+            .rotating-skills { font-size: 2rem; min-height: 3rem; }
             .about-content { grid-template-columns: 1fr; }
             .stats { grid-template-columns: 1fr; }
             nav ul { gap: 1.5rem; }
             section { padding: 4rem 5%; }
+            
+            .timeline::before { left: 30px; }
+            .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 60px; }
+            .timeline-content { width: 100%; }
+            .timeline-dot { left: 30px; }
+            .timeline-date { left: 30px; transform: none; }
         }
     </style>
 </head>
@@ -389,6 +522,7 @@
             <div class="logo">Himanshu Datta</div>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -399,8 +533,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Himanshu Datta</h1>
-            <p class="subtitle">Product Manager | Spatial Computing & Digital Innovation</p>
+            <h1 class="rotating-skills">I excel at <span class="skill-word" id="rotating-skill"></span></h1>
             <p class="tagline">I build immersive digital experiences that bridge luxury brands with cutting-edge technology, from Apple Vision Pro to 3D virtual stores that transform how customers engage with products.</p>
             <a href="#projects" class="cta-button">See My Work</a>
         </div>
@@ -427,6 +560,47 @@
                 <div class="stat-item">
                     <span class="stat-number">30%</span>
                     <span class="stat-label">Engagement Increase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2013 - 2017</div>
+                <div class="timeline-content">
+                    <h3>🎓</h3>
+                    <div class="degree">Bachelor of Technology</div>
+                    <div class="university">Computer Science and Engineering</div>
+                    <div class="university">Dr. A.P.J Abdul Kalam Technical University, India</div>
+                    <span class="gpa">GPA: 3.6/4.0</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2019 - 2021</div>
+                <div class="timeline-content">
+                    <h3>🗽</h3>
+                    <div class="degree">Master of Science</div>
+                    <div class="university">Management of Technology</div>
+                    <div class="university">New York University, New York</div>
+                    <span class="gpa">GPA: 3.8/4.0</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2024 - 2026</div>
+                <div class="timeline-content">
+                    <h3>📚</h3>
+                    <div class="degree">Master of Business Administration</div>
+                    <div class="university">New England College, New Hampshire</div>
+                    <span class="gpa">In Progress</span>
                 </div>
             </div>
         </div>
@@ -597,6 +771,42 @@
     </footer>
 
     <script>
+        // Rotating skills animation
+        const skills = [
+            'Spatial Computing',
+            'Apple Vision Pro Development',
+            '3D Gamification',
+            'Product Strategy',
+            'Cross-functional Leadership',
+            'AR/VR Technologies',
+            'Luxury Brand Experiences',
+            'Agile Methodologies',
+            'Stakeholder Management',
+            'Go-to-Market Strategy'
+        ];
+        
+        let currentSkillIndex = 0;
+        const skillElement = document.getElementById('rotating-skill');
+        
+        function rotateSkill() {
+            skillElement.style.opacity = '0';
+            skillElement.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                currentSkillIndex = (currentSkillIndex + 1) % skills.length;
+                skillElement.textContent = skills[currentSkillIndex];
+                skillElement.style.opacity = '1';
+                skillElement.style.transform = 'translateY(0)';
+            }, 500);
+        }
+        
+        // Initialize first skill
+        skillElement.textContent = skills[0];
+        skillElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        // Rotate every 3 seconds
+        setInterval(rotateSkill, 3000);
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
