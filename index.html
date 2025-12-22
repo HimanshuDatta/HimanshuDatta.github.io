@@ -393,12 +393,14 @@
 
         /* Rotating Skills */
         .rotating-skills {
-            font-size: 4rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease 0.2s backwards;
-            min-height: 5rem;
+            min-height: 3.2rem;
             color: rgba(255, 255, 255, 0.9);
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         .skill-word {
@@ -406,7 +408,6 @@
             font-weight: 700;
             color: #4fd1c5;
             text-shadow: 0 2px 10px rgba(79, 209, 197, 0.5);
-            animation: fadeInOut 3s ease-in-out infinite;
         }
 
         @keyframes fadeInOut {
@@ -534,7 +535,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="rotating-skills">I excel at <span class="skill-word" id="rotating-skill"></span></h1>
-            <p class="tagline">I build immersive digital experiences that bridge luxury brands with cutting-edge technology, from Apple Vision Pro to 3D virtual stores that transform how customers engage with products.</p>
+            <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
             <a href="#projects" class="cta-button">See My Work</a>
         </div>
     </section>
@@ -774,7 +775,7 @@
         // Rotating skills animation
         const skills = [
             'Spatial Computing',
-            'Apple Vision Pro Development',
+            'Apple Vision Pro',
             '3D Gamification',
             'Product Strategy',
             'Cross-functional Leadership',
@@ -789,20 +790,23 @@
         const skillElement = document.getElementById('rotating-skill');
         
         function rotateSkill() {
+            // Fade out
             skillElement.style.opacity = '0';
-            skillElement.style.transform = 'translateY(10px)';
             
             setTimeout(() => {
+                // Change skill
                 currentSkillIndex = (currentSkillIndex + 1) % skills.length;
                 skillElement.textContent = skills[currentSkillIndex];
+                
+                // Fade in
                 skillElement.style.opacity = '1';
-                skillElement.style.transform = 'translateY(0)';
             }, 500);
         }
         
         // Initialize first skill
         skillElement.textContent = skills[0];
-        skillElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        skillElement.style.opacity = '1';
+        skillElement.style.transition = 'opacity 0.5s ease';
         
         // Rotate every 3 seconds
         setInterval(rotateSkill, 3000);
