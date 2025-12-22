@@ -175,27 +175,65 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            gap: 3rem;
+            align-items: start;
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: #2c5364;
+            line-height: 1.3;
         }
 
         .about-text p {
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: #555;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #2c5364;
+        }
+
+        .about-highlights h4 {
+            color: #2c5364;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-highlights li {
+            padding: 0.7rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .about-highlights li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #2c5364;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
 
         .stat-item {
@@ -286,48 +324,44 @@
             color: #555;
         }
 
-        /* Education Timeline */
+        /* Education Timeline - Horizontal */
         .timeline {
             position: relative;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #0f2027 0%, #2c5364 100%);
+            top: 80px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: linear-gradient(90deg, #0f2027 0%, #2c5364 100%);
             border-radius: 2px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            width: 30%;
             display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
         .timeline-content {
-            width: 45%;
+            width: 100%;
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-            position: relative;
             transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 2rem;
         }
 
         .timeline-content:hover {
@@ -336,59 +370,59 @@
         }
 
         .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             background: #2c5364;
-            border: 4px solid white;
+            border: 5px solid white;
             border-radius: 50%;
             box-shadow: 0 0 0 4px #2c5364;
             z-index: 1;
+            margin-top: 68px;
         }
 
         .timeline-date {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: -30px;
             background: #2c5364;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 600;
             white-space: nowrap;
+            margin-bottom: 0.5rem;
         }
 
         .timeline-content h3 {
             color: #2c5364;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
         }
 
         .timeline-content .degree {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 0.5rem;
+            text-align: center;
         }
 
         .timeline-content .university {
             color: #666;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.4;
         }
 
         .timeline-content .gpa {
             display: inline-block;
             background: #f0f0f0;
-            padding: 0.3rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 15px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #2c5364;
             font-weight: 600;
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
         }
 
         /* Rotating Skills */
@@ -549,19 +583,15 @@
                 <p>I'm a Product Manager specializing in spatial computing and immersive digital experiences. At Obsess, I pioneered virtual store experiences for iconic luxury brands on Apple Vision Pro, and at Mattel's Fisher-Price, I lead creative project management bringing innovative collaborations to life.</p>
                 <p>My approach combines deep technical expertise with creative storytelling. I believe the future of retail lies in creating experiences that are not just functional, but memorable—where technology enhances the emotional connection between brands and their customers.</p>
             </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Virtual Experiences Launched</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">30%</span>
-                    <span class="stat-label">Engagement Increase</span>
-                </div>
+            <div class="about-highlights">
+                <h4>What I Bring to the Table</h4>
+                <ul>
+                    <li>Led 150+ virtual experience launches for luxury brands including Dior, Chanel, and Prada</li>
+                    <li>Pioneered Apple Vision Pro experiences, defining the future of spatial retail</li>
+                    <li>Spearheaded 0-to-1 products generating new revenue streams</li>
+                    <li>Managed high-profile collaborations with celebrity partners</li>
+                    <li>Increased user engagement by 30% through gamification strategies</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -571,36 +601,36 @@
         <h2 class="section-title">Education Journey</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
                 <div class="timeline-date">2013 - 2017</div>
+                <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>🎓</h3>
                     <div class="degree">Bachelor of Technology</div>
                     <div class="university">Computer Science and Engineering</div>
-                    <div class="university">Dr. A.P.J Abdul Kalam Technical University, India</div>
+                    <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
                     <span class="gpa">GPA: 3.6/4.0</span>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
                 <div class="timeline-date">2019 - 2021</div>
+                <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>🗽</h3>
                     <div class="degree">Master of Science</div>
                     <div class="university">Management of Technology</div>
-                    <div class="university">New York University, New York</div>
+                    <div class="university">New York University</div>
                     <span class="gpa">GPA: 3.8/4.0</span>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
                 <div class="timeline-date">2024 - 2026</div>
+                <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <h3>📚</h3>
                     <div class="degree">Master of Business Administration</div>
-                    <div class="university">New England College, New Hampshire</div>
+                    <div class="university">New England College</div>
                     <span class="gpa">In Progress</span>
                 </div>
             </div>
