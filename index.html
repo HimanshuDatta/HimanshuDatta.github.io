@@ -413,7 +413,16 @@
             min-height: 3.2rem;
             color: rgba(255, 255, 255, 0.9);
             white-space: nowrap;
-            overflow: hidden;
+            overflow: visible;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .excel-text {
+            display: inline-block;
         }
 
         .skill-word {
@@ -547,7 +556,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="rotating-skills">I excel at <span class="skill-word" id="rotating-skill"></span></h1>
+            <h1 class="rotating-skills">
+                <span class="excel-text">I excel at</span>
+                <span class="skill-word" id="rotating-skill"></span>
+            </h1>
             <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
             <a href="#projects" class="cta-button">See My Work</a>
         </div>
