@@ -13,16 +13,11 @@
         }
 
 ```
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        max-width: 100vw;
-    }
-
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         line-height: 1.6;
         color: #1a1a1a;
+        overflow-x: hidden;
     }
 
     /* Navigation */
@@ -162,7 +157,6 @@
         padding: 6rem 5%;
         max-width: 1400px;
         margin: 0 auto;
-        width: 100%;
     }
 
     .section-title {
@@ -271,7 +265,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2.5rem;
-        width: 100%;
     }
 
     .project-card {
@@ -338,91 +331,88 @@
 
     /* Education Timeline - Flexible Card Design */
     .timeline {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        max-width: 900px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 2rem 0;
     }
 
     .timeline-item {
+        position: relative;
         display: flex;
-        align-items: center;
-        gap: 2rem;
+        flex-direction: column;
+    }
+
+    .timeline-content {
         background: white;
         padding: 2rem;
         border-radius: 15px;
         box-shadow: 0 5px 30px rgba(0,0,0,0.08);
         transition: transform 0.3s, box-shadow 0.3s;
-        border-left: 4px solid #2c5364;
-    }
-
-    .timeline-item:hover {
-        transform: translateX(5px);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-    }
-
-    .timeline-logo {
-        flex-shrink: 0;
-        width: 80px;
-        height: 80px;
+        height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f8f9fa;
-        border-radius: 10px;
-        font-size: 2.5rem;
+        flex-direction: column;
+        border-top: 4px solid #2c5364;
     }
 
-    .timeline-info {
-        flex: 1;
+    .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
     }
 
     .timeline-date {
         background: #2c5364;
         color: white;
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
         font-weight: 600;
-        display: inline-block;
-        margin-bottom: 0.8rem;
+        align-self: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
     }
 
     .timeline-content .degree {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         font-weight: 700;
         color: #2c5364;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.8rem;
         line-height: 1.3;
     }
 
     .timeline-content .university {
         color: #666;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
         font-size: 0.95rem;
-        line-height: 1.4;
+        line-height: 1.5;
     }
 
     .timeline-content .gpa {
         display: inline-block;
         background: #f0f0f0;
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.85rem;
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
         color: #2c5364;
         font-weight: 600;
-        margin-top: 0.5rem;
+        margin-top: auto;
+        align-self: flex-start;
     }
 
     /* Rotating Skills */
     .rotating-skills {
-        font-size: 2rem;
+        font-size: 2.4rem;
         font-weight: 700;
         margin-bottom: 2rem;
         animation: fadeInUp 0.8s ease 0.2s backwards;
-        min-height: 2.7rem;
+        min-height: 3.2rem;
         color: rgba(255, 255, 255, 0.9);
         white-space: nowrap;
         overflow: visible;
@@ -572,7 +562,7 @@
 <section class="hero">
     <div class="hero-content">
         <h1 class="rotating-skills">
-            <span class="excel-text">I excel at</span>
+            <span class="excel-text">I specialize in</span>
             <span class="skill-word" id="rotating-skill"></span>
         </h1>
         <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
