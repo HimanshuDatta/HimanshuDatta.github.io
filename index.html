@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,532 +12,545 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
-
-        nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #2c5364;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: drift 20s linear infinite;
-        }
-
-        @keyframes drift {
-            from { transform: translate(0, 0); }
-            to { transform: translate(50px, 50px); }
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 1;
-            padding: 2rem;
-            max-width: 900px;
-            width: 100%;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: #2c5364;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #2c5364;
-            line-height: 1.3;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .about-highlights {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid #2c5364;
-        }
-
-        .about-highlights h4 {
-            color: #2c5364;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .about-highlights ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .about-highlights li {
-            padding: 0.7rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .about-highlights li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #2c5364;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2.5rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c5364;
-            display: block;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-
-        .project-role {
-            color: #2c5364;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: #f0f0f0;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #555;
-        }
-
-        /* Education Timeline - Flexible Card Design */
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .timeline-item {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border-top: 4px solid #2c5364;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .timeline-date {
-            background: #2c5364;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            align-self: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .timeline-content .degree {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #2c5364;
-            margin-bottom: 0.8rem;
-            line-height: 1.3;
-        }
-
-        .timeline-content .university {
-            color: #666;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .timeline-content .gpa {
-            display: inline-block;
-            background: #f0f0f0;
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #2c5364;
-            font-weight: 600;
-            margin-top: auto;
-            align-self: flex-start;
-        }
-
-        /* Rotating Skills */
-        .rotating-skills {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-            min-height: 3.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            white-space: nowrap;
-            overflow: visible;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .excel-text {
-            display: inline-block;
-        }
-
-        .skill-word {
-            display: inline-block;
-            font-weight: 700;
-            color: #4fd1c5;
-            text-shadow: 0 2px 10px rgba(79, 209, 197, 0.5);
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; transform: translateY(10px); }
-            10%, 90% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            color: white;
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
+```
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #1a1a1a;
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem 5%;
+        z-index: 1000;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+
+    nav .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    nav .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #1a1a1a;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #2c5364;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: drift 20s linear infinite;
+    }
+
+    @keyframes drift {
+        from { transform: translate(0, 0); }
+        to { transform: translate(50px, 50px); }
+    }
+
+    .hero-content {
+        text-align: center;
+        color: white;
+        z-index: 1;
+        padding: 2rem;
+        max-width: 900px;
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 0.8s ease;
+    }
+
+    .hero .subtitle {
+        font-size: 1.5rem;
+        opacity: 0.95;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    .hero .tagline {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+        animation: fadeInUp 0.8s ease 0.4s backwards;
+        line-height: 1.7;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: white;
+        color: #2c5364;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: transform 0.3s, box-shadow 0.3s;
+        animation: fadeInUp 0.8s ease 0.6s backwards;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Section Styles */
+    section {
+        padding: 6rem 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
+        margin: 1rem auto;
+        border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .about-text h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #2c5364;
+        line-height: 1.3;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+        color: #555;
+        line-height: 1.8;
+    }
+
+    .about-highlights {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 4px solid #2c5364;
+    }
+
+    .about-highlights h4 {
+        color: #2c5364;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .about-highlights ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .about-highlights li {
+        padding: 0.7rem 0;
+        padding-left: 1.8rem;
+        position: relative;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .about-highlights li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #2c5364;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2c5364;
+        display: block;
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        width: 100%;
+    }
+
+    .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    }
+
+    .project-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: white;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+    }
+
+    .project-role {
+        color: #2c5364;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .project-description {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tag {
+        background: #f0f0f0;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #555;
+    }
+
+    /* Education Timeline - Flexible Card Design */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-left: 4px solid #2c5364;
+    }
+
+    .timeline-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+
+    .timeline-logo {
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+        border-radius: 10px;
+        font-size: 2.5rem;
+    }
+
+    .timeline-info {
+        flex: 1;
+    }
+
+    .timeline-date {
+        background: #2c5364;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 0.8rem;
+    }
+
+    .timeline-content .degree {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #2c5364;
+        margin-bottom: 0.3rem;
+        line-height: 1.3;
+    }
+
+    .timeline-content .university {
+        color: #666;
+        margin-bottom: 0.3rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .timeline-content .gpa {
+        display: inline-block;
+        background: #f0f0f0;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        color: #2c5364;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    /* Rotating Skills */
+    .rotating-skills {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease 0.2s backwards;
+        min-height: 2.7rem;
+        color: rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .excel-text {
+        display: inline-block;
+    }
+
+    .skill-word {
+        display: inline-block;
+        font-weight: 700;
+        color: #4fd1c5;
+        text-shadow: 0 2px 10px rgba(79, 209, 197, 0.5);
+    }
+
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0; transform: translateY(10px); }
+        10%, 90% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Skills Section */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .skill-category {
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        color: white;
+    }
+
+    .skill-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skill-category ul {
+        list-style: none;
+    }
+
+    .skill-category li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .skill-category li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact {
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        color: white;
+        text-align: center;
+        border-radius: 20px;
+        padding: 5rem 3rem;
+    }
+
+    .contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+    }
+
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-link {
+        padding: 1rem 2rem;
+        background: white;
+        color: #2c5364;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: transform 0.3s;
+    }
+
+    .contact-link:hover {
+        transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 2rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .rotating-skills { font-size: 2rem; min-height: 3rem; }
+        .about-content { grid-template-columns: 1fr; }
+        .stats { grid-template-columns: 1fr; }
+        nav ul { gap: 1.5rem; }
+        section { padding: 4rem 5%; }
+        
+        .timeline::before { left: 30px; }
+        .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 60px; }
+        .timeline-content { width: 100%; }
+        .timeline-dot { left: 30px; }
+        .timeline-date { left: 30px; transform: none; }
+    }
+</style>
+```
 
-        .skill-category li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            color: white;
-            text-align: center;
-            border-radius: 20px;
-            padding: 5rem 3rem;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            padding: 1rem 2rem;
-            background: white;
-            color: #2c5364;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s;
-        }
-
-        .contact-link:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .rotating-skills { font-size: 2rem; min-height: 3rem; }
-            .about-content { grid-template-columns: 1fr; }
-            .stats { grid-template-columns: 1fr; }
-            nav ul { gap: 1.5rem; }
-            section { padding: 4rem 5%; }
-            
-            .timeline::before { left: 30px; }
-            .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 60px; }
-            .timeline-content { width: 100%; }
-            .timeline-dot { left: 30px; }
-            .timeline-date { left: 30px; transform: none; }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -553,310 +567,313 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="rotating-skills">
-                <span class="excel-text">I excel at</span>
-                <span class="skill-word" id="rotating-skill"></span>
-            </h1>
-            <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
-            <a href="#projects" class="cta-button">See My Work</a>
+```
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="rotating-skills">
+            <span class="excel-text">I excel at</span>
+            <span class="skill-word" id="rotating-skill"></span>
+        </h1>
+        <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
+        <a href="#projects" class="cta-button">See My Work</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <h2 class="section-title">My Story</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Bridging Luxury Brands with Emerging Technology</h3>
+            <p>I'm a Product Manager specializing in spatial computing and immersive digital experiences. At Obsess, I pioneered virtual store experiences for iconic luxury brands on Apple Vision Pro, and at Mattel's Fisher-Price, I lead creative project management bringing innovative collaborations to life.</p>
+            <p>My approach combines deep technical expertise with creative storytelling. I believe the future of retail lies in creating experiences that are not just functional, but memorable—where technology enhances the emotional connection between brands and their customers.</p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">My Story</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Bridging Luxury Brands with Emerging Technology</h3>
-                <p>I'm a Product Manager specializing in spatial computing and immersive digital experiences. At Obsess, I pioneered virtual store experiences for iconic luxury brands on Apple Vision Pro, and at Mattel's Fisher-Price, I lead creative project management bringing innovative collaborations to life.</p>
-                <p>My approach combines deep technical expertise with creative storytelling. I believe the future of retail lies in creating experiences that are not just functional, but memorable—where technology enhances the emotional connection between brands and their customers.</p>
-            </div>
-            <div class="about-highlights">
-                <h4>What I Bring to the Table</h4>
-                <ul>
-                    <li>Led 150+ virtual experience launches for luxury brands including Dior, Chanel, and Prada</li>
-                    <li>Pioneered Apple Vision Pro experiences, defining the future of spatial retail</li>
-                    <li>Spearheaded 0-to-1 products generating new revenue streams</li>
-                    <li>Managed high-profile collaborations with celebrity partners</li>
-                    <li>Increased user engagement by 30% through gamification strategies</li>
-                </ul>
-            </div>
+        <div class="about-highlights">
+            <h4>What I Bring to the Table</h4>
+            <ul>
+                <li>Led 150+ virtual experience launches for luxury brands including Dior, Chanel, and Prada</li>
+                <li>Pioneered Apple Vision Pro experiences, defining the future of spatial retail</li>
+                <li>Spearheaded 0-to-1 products generating new revenue streams</li>
+                <li>Managed high-profile collaborations with celebrity partners</li>
+                <li>Increased user engagement by 30% through gamification strategies</li>
+            </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Education Section -->
-    <section id="education">
-        <h2 class="section-title">Education Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2013 - 2017</div>
-                    <h3>🎓</h3>
-                    <div class="degree">Bachelor of Technology</div>
-                    <div class="university">Computer Science and Engineering</div>
-                    <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
-                    <span class="gpa">GPA: 3.6/4.0</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2021</div>
-                    <h3>🗽</h3>
-                    <div class="degree">Master of Science</div>
-                    <div class="university">Management of Technology</div>
-                    <div class="university">New York University</div>
-                    <span class="gpa">GPA: 3.8/4.0</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024 - 2026</div>
-                    <h3>📚</h3>
-                    <div class="degree">Master of Business Administration</div>
-                    <div class="university">New England College</div>
-                    <span class="gpa">In Progress</span>
-                </div>
+<!-- Education Section -->
+<section id="education">
+    <h2 class="section-title">Education Journey</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2013 - 2017</div>
+                <h3>🎓</h3>
+                <div class="degree">Bachelor of Technology</div>
+                <div class="university">Computer Science and Engineering</div>
+                <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
+                <span class="gpa">GPA: 3.6/4.0</span>
             </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">🥽</div>
-                <div class="project-content">
-                    <h3 class="project-title">Apple Vision Pro: Luxury Retail Redefined</h3>
-                    <p class="project-role">Product Manager | Obsess Inc.</p>
-                    <p class="project-description">Led the development of groundbreaking spatial experiences for J.Crew, Mytheresa, and Chanel on Apple Vision Pro. Defined product strategy and worked with cross-functional teams to create immersive shopping experiences that set the standard for spatial computing in luxury retail.</p>
-                    <div class="project-tags">
-                        <span class="tag">Apple Vision Pro</span>
-                        <span class="tag">Spatial Computing</span>
-                        <span class="tag">Luxury Retail</span>
-                        <span class="tag">XR/VR</span>
-                    </div>
-                </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2019 - 2021</div>
+                <h3>🗽</h3>
+                <div class="degree">Master of Science</div>
+                <div class="university">Management of Technology</div>
+                <div class="university">New York University</div>
+                <span class="gpa">GPA: 3.8/4.0</span>
             </div>
+        </div>
 
-            <div class="project-card">
-                <div class="project-image">✨</div>
-                <div class="project-content">
-                    <h3 class="project-title">3D Virtual Stores for Luxury Brands</h3>
-                    <p class="project-role">Sole Product Owner | Obsess Inc.</p>
-                    <p class="project-description">Served as sole Product Owner for Charlotte Tilbury, Prada, Ralph Lauren, K18, and Dior, evolving their 3D virtual store journeys. Designed and delivered 3D gamification experiences that increased customer engagement by 30% and platform time by 20%, launching 150+ virtual experiences across luxury brands.</p>
-                    <div class="project-tags">
-                        <span class="tag">3D Gamification</span>
-                        <span class="tag">E-commerce</span>
-                        <span class="tag">Product Strategy</span>
-                        <span class="tag">User Engagement</span>
-                    </div>
-                </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-date">2024 - 2026</div>
+                <h3>📚</h3>
+                <div class="degree">Master of Business Administration</div>
+                <div class="university">New England College</div>
+                <span class="gpa">In Progress</span>
             </div>
+        </div>
+    </div>
+</section>
 
-            <div class="project-card">
-                <div class="project-image">🎵</div>
-                <div class="project-content">
-                    <h3 class="project-title">Fisher-Price x John Legend Collaboration</h3>
-                    <p class="project-role">Lead Project Manager | Mattel Inc.</p>
-                    <p class="project-description">Orchestrated a 3-fold project collaboration between Fisher-Price and John Legend: created a children's magazine, curated a children's playlist, and produced a launch event at John Legend's California home. Led the iHeartRadio station launch, managing cross-functional teams across legal, finance, merchandising, and global stakeholders.</p>
-                    <div class="project-tags">
-                        <span class="tag">Celebrity Partnership</span>
-                        <span class="tag">Multi-Platform Launch</span>
-                        <span class="tag">Stakeholder Management</span>
-                        <span class="tag">Budget Management</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🎮</div>
-                <div class="project-content">
-                    <h3 class="project-title">Roblox Virtual Experiences</h3>
-                    <p class="project-role">Product Manager | Obsess Inc.</p>
-                    <p class="project-description">Spearheaded Roblox experiences for luxury brands, strategizing and defining product roadmap from 0 to 1. Created a new revenue stream by enabling brands to reach younger audiences through interactive gaming experiences, integrating AR/VR technologies for Oculus and other platforms.</p>
-                    <div class="project-tags">
-                        <span class="tag">Roblox</span>
-                        <span class="tag">Gaming</span>
-                        <span class="tag">0-to-1 Product</span>
-                        <span class="tag">Revenue Generation</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🛠️</div>
-                <div class="project-content">
-                    <h3 class="project-title">Self-Serve CMS for Luxury Fashion</h3>
-                    <p class="project-role">Product Manager | Obsess Inc.</p>
-                    <p class="project-description">Oversaw development of a self-serve content management system enabling luxury fashion brands to manage virtual store content independently. Achieved full scalability, contributing to increased customer satisfaction and retention while reducing operational overhead.</p>
-                    <div class="project-tags">
-                        <span class="tag">Content Management</span>
-                        <span class="tag">Scalability</span>
-                        <span class="tag">B2B SaaS</span>
-                        <span class="tag">Customer Success</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">📊</div>
-                <div class="project-content">
-                    <h3 class="project-title">Creative Operations Optimization</h3>
-                    <p class="project-role">Lead Project Manager | Mattel Inc.</p>
-                    <p class="project-description">Transformed Fisher-Price creative department operations using Adobe Workfront. Owned department budgeting, led quarterly reviews, and introduced new PM techniques that increased team productivity by 15%. Managed end-to-end creative workflows for all brand projects.</p>
-                    <div class="project-tags">
-                        <span class="tag">Process Optimization</span>
-                        <span class="tag">Budget Management</span>
-                        <span class="tag">Team Leadership</span>
-                        <span class="tag">Adobe Workfront</span>
-                    </div>
+<!-- Projects Section -->
+<section id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-image">🥽</div>
+            <div class="project-content">
+                <h3 class="project-title">Apple Vision Pro: Luxury Retail Redefined</h3>
+                <p class="project-role">Product Manager | Obsess Inc.</p>
+                <p class="project-description">Led the development of groundbreaking spatial experiences for J.Crew, Mytheresa, and Chanel on Apple Vision Pro. Defined product strategy and worked with cross-functional teams to create immersive shopping experiences that set the standard for spatial computing in luxury retail.</p>
+                <div class="project-tags">
+                    <span class="tag">Apple Vision Pro</span>
+                    <span class="tag">Spatial Computing</span>
+                    <span class="tag">Luxury Retail</span>
+                    <span class="tag">XR/VR</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Product Strategy & Vision</h3>
-                <ul>
-                    <li>0-to-1 Product Development</li>
-                    <li>Product Roadmapping</li>
-                    <li>Market & Competitive Analysis</li>
-                    <li>Go-to-Market Strategy</li>
-                    <li>Feature Prioritization</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Emerging Technologies</h3>
-                <ul>
-                    <li>Apple Vision Pro & Spatial Computing</li>
-                    <li>AR/VR/XR Technologies</li>
-                    <li>3D Gamification</li>
-                    <li>Roblox Platform Development</li>
-                    <li>Oculus & Meta Platforms</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Technical & Analytics</h3>
-                <ul>
-                    <li>Software Development Concepts</li>
-                    <li>API Integration</li>
-                    <li>Data-Driven Decision Making</li>
-                    <li>A/B Testing & Analytics</li>
-                    <li>System Architecture</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Leadership & Collaboration</h3>
-                <ul>
-                    <li>Cross-Functional Team Leadership</li>
-                    <li>Stakeholder Management</li>
-                    <li>Budget & Resource Management</li>
-                    <li>Agile/Scrum Methodologies</li>
-                    <li>Executive Communication</li>
-                </ul>
+        <div class="project-card">
+            <div class="project-image">✨</div>
+            <div class="project-content">
+                <h3 class="project-title">3D Virtual Stores for Luxury Brands</h3>
+                <p class="project-role">Sole Product Owner | Obsess Inc.</p>
+                <p class="project-description">Served as sole Product Owner for Charlotte Tilbury, Prada, Ralph Lauren, K18, and Dior, evolving their 3D virtual store journeys. Designed and delivered 3D gamification experiences that increased customer engagement by 30% and platform time by 20%, launching 150+ virtual experiences across luxury brands.</p>
+                <div class="project-tags">
+                    <span class="tag">3D Gamification</span>
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">Product Strategy</span>
+                    <span class="tag">User Engagement</span>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" style="padding: 3rem 5%;">
-        <div class="contact">
-            <h2>Let's Build the Future Together</h2>
-            <p>Interested in spatial computing, luxury tech, or innovative product experiences? Let's connect.</p>
-            <div class="contact-links">
-                <a href="mailto:h.datta18@gmail.com" class="contact-link">Email Me</a>
-                <a href="https://linkedin.com/in/himanshu-datta" class="contact-link" target="_blank">LinkedIn</a>
-                <!-- <a href="tel:3474223123" class="contact-link">Call Me</a> -->
+        <div class="project-card">
+            <div class="project-image">🎵</div>
+            <div class="project-content">
+                <h3 class="project-title">Fisher-Price x John Legend Collaboration</h3>
+                <p class="project-role">Lead Project Manager | Mattel Inc.</p>
+                <p class="project-description">Orchestrated a 3-fold project collaboration between Fisher-Price and John Legend: created a children's magazine, curated a children's playlist, and produced a launch event at John Legend's California home. Led the iHeartRadio station launch, managing cross-functional teams across legal, finance, merchandising, and global stakeholders.</p>
+                <div class="project-tags">
+                    <span class="tag">Celebrity Partnership</span>
+                    <span class="tag">Multi-Platform Launch</span>
+                    <span class="tag">Stakeholder Management</span>
+                    <span class="tag">Budget Management</span>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Himanshu Datta. Crafting immersive experiences at the intersection of luxury and technology.</p>
-    </footer>
+        <div class="project-card">
+            <div class="project-image">🎮</div>
+            <div class="project-content">
+                <h3 class="project-title">Roblox Virtual Experiences</h3>
+                <p class="project-role">Product Manager | Obsess Inc.</p>
+                <p class="project-description">Spearheaded Roblox experiences for luxury brands, strategizing and defining product roadmap from 0 to 1. Created a new revenue stream by enabling brands to reach younger audiences through interactive gaming experiences, integrating AR/VR technologies for Oculus and other platforms.</p>
+                <div class="project-tags">
+                    <span class="tag">Roblox</span>
+                    <span class="tag">Gaming</span>
+                    <span class="tag">0-to-1 Product</span>
+                    <span class="tag">Revenue Generation</span>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        // Rotating skills animation
-        const skills = [
-            'Spatial Computing',
-            'Apple Vision Pro',
-            '3D Gamification',
-            'Product Strategy',
-            'Cross-functional Leadership',
-            'AR/VR Technologies',
-            'Luxury Brand Experiences',
-            'Agile Methodologies',
-            'Stakeholder Management',
-            'Go-to-Market Strategy'
-        ];
+        <div class="project-card">
+            <div class="project-image">🛠️</div>
+            <div class="project-content">
+                <h3 class="project-title">Self-Serve CMS for Luxury Fashion</h3>
+                <p class="project-role">Product Manager | Obsess Inc.</p>
+                <p class="project-description">Oversaw development of a self-serve content management system enabling luxury fashion brands to manage virtual store content independently. Achieved full scalability, contributing to increased customer satisfaction and retention while reducing operational overhead.</p>
+                <div class="project-tags">
+                    <span class="tag">Content Management</span>
+                    <span class="tag">Scalability</span>
+                    <span class="tag">B2B SaaS</span>
+                    <span class="tag">Customer Success</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">📊</div>
+            <div class="project-content">
+                <h3 class="project-title">Creative Operations Optimization</h3>
+                <p class="project-role">Lead Project Manager | Mattel Inc.</p>
+                <p class="project-description">Transformed Fisher-Price creative department operations using Adobe Workfront. Owned department budgeting, led quarterly reviews, and introduced new PM techniques that increased team productivity by 15%. Managed end-to-end creative workflows for all brand projects.</p>
+                <div class="project-tags">
+                    <span class="tag">Process Optimization</span>
+                    <span class="tag">Budget Management</span>
+                    <span class="tag">Team Leadership</span>
+                    <span class="tag">Adobe Workfront</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Product Strategy & Vision</h3>
+            <ul>
+                <li>0-to-1 Product Development</li>
+                <li>Product Roadmapping</li>
+                <li>Market & Competitive Analysis</li>
+                <li>Go-to-Market Strategy</li>
+                <li>Feature Prioritization</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Emerging Technologies</h3>
+            <ul>
+                <li>Apple Vision Pro & Spatial Computing</li>
+                <li>AR/VR/XR Technologies</li>
+                <li>3D Gamification</li>
+                <li>Roblox Platform Development</li>
+                <li>Oculus & Meta Platforms</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Technical & Analytics</h3>
+            <ul>
+                <li>Software Development Concepts</li>
+                <li>API Integration</li>
+                <li>Data-Driven Decision Making</li>
+                <li>A/B Testing & Analytics</li>
+                <li>System Architecture</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Leadership & Collaboration</h3>
+            <ul>
+                <li>Cross-Functional Team Leadership</li>
+                <li>Stakeholder Management</li>
+                <li>Budget & Resource Management</li>
+                <li>Agile/Scrum Methodologies</li>
+                <li>Executive Communication</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" style="padding: 3rem 5%;">
+    <div class="contact">
+        <h2>Let's Build the Future Together</h2>
+        <p>Interested in spatial computing, luxury tech, or innovative product experiences? Let's connect.</p>
+        <div class="contact-links">
+            <a href="mailto:h.datta18@gmail.com" class="contact-link">Email Me</a>
+            <a href="https://linkedin.com/in/himanshu-datta" class="contact-link" target="_blank">LinkedIn</a>
+            <!-- <a href="tel:3474223123" class="contact-link">Call Me</a> -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Himanshu Datta. Crafting immersive experiences at the intersection of luxury and technology.</p>
+</footer>
+
+<script>
+    // Rotating skills animation
+    const skills = [
+        'Spatial Computing',
+        'Apple Vision Pro',
+        '3D Gamification',
+        'Product Strategy',
+        'Cross-functional Leadership',
+        'AR/VR Technologies',
+        'Luxury Brand Experiences',
+        'Agile Methodologies',
+        'Stakeholder Management',
+        'Go-to-Market Strategy'
+    ];
+    
+    let currentSkillIndex = 0;
+    const skillElement = document.getElementById('rotating-skill');
+    
+    function rotateSkill() {
+        // Fade out
+        skillElement.style.opacity = '0';
         
-        let currentSkillIndex = 0;
-        const skillElement = document.getElementById('rotating-skill');
-        
-        function rotateSkill() {
-            // Fade out
-            skillElement.style.opacity = '0';
+        setTimeout(() => {
+            // Change skill
+            currentSkillIndex = (currentSkillIndex + 1) % skills.length;
+            skillElement.textContent = skills[currentSkillIndex];
             
-            setTimeout(() => {
-                // Change skill
-                currentSkillIndex = (currentSkillIndex + 1) % skills.length;
-                skillElement.textContent = skills[currentSkillIndex];
-                
-                // Fade in
-                skillElement.style.opacity = '1';
-            }, 500);
+            // Fade in
+            skillElement.style.opacity = '1';
+        }, 500);
+    }
+    
+    // Initialize first skill
+    skillElement.textContent = skills[0];
+    skillElement.style.opacity = '1';
+    skillElement.style.transition = 'opacity 0.5s ease';
+    
+    // Rotate every 3 seconds
+    setInterval(rotateSkill, 3000);
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add scroll effect to navigation
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            nav.style.padding = '1rem 5%';
+        } else {
+            nav.style.padding = '1.5rem 5%';
         }
         
-        // Initialize first skill
-        skillElement.textContent = skills[0];
-        skillElement.style.opacity = '1';
-        skillElement.style.transition = 'opacity 0.5s ease';
-        
-        // Rotate every 3 seconds
-        setInterval(rotateSkill, 3000);
+        lastScroll = currentScroll;
+    });
+</script>
+```
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.style.padding = '1rem 5%';
-            } else {
-                nav.style.padding = '1.5rem 5%';
-            }
-            
-            lastScroll = currentScroll;
-        });
-    </script>
 </body>
 </html>
