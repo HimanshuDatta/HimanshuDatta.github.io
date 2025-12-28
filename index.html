@@ -357,12 +357,12 @@
             border: 1px solid #3a3a3a;
         }
 
-        /* Education Timeline - Flexible Card Design */
+        /* Education Timeline - Vertical Square Tiles */
         .timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem 0;
             width: 100%;
@@ -371,7 +371,9 @@
         .timeline-item {
             position: relative;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
         }
 
         .timeline-content {
@@ -380,65 +382,88 @@
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s, box-shadow 0.3s;
-            height: 100%;
             display: flex;
-            flex-direction: column;
-            border-top: 4px solid #4fd1c5;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+            border-left: 4px solid #4fd1c5;
+            width: 100%;
         }
 
         .timeline-content:hover {
-            transform: translateY(-5px);
+            transform: translateX(10px);
             box-shadow: 0 10px 40px rgba(79, 209, 197, 0.2);
+        }
+
+        .timeline-content .logo-container {
+            min-width: 120px;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content .logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .timeline-content .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .timeline-date {
             background: #4fd1c5;
             color: #1a1a1a;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            align-self: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 0.5rem;
         }
 
         .timeline-content .degree {
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #4fd1c5;
-            margin-bottom: 0.8rem;
             line-height: 1.3;
+            margin-bottom: 0.3rem;
         }
 
         .timeline-content .university {
             color: #b8b8b8;
-            margin-bottom: 0.5rem;
             font-size: 0.95rem;
             line-height: 1.5;
+            margin-bottom: 0.2rem;
         }
 
         .timeline-content .gpa {
             display: inline-block;
             background: #1a1a1a;
-            padding: 0.5rem 1.2rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #4fd1c5;
             font-weight: 600;
-            margin-top: auto;
-            align-self: flex-start;
             border: 1px solid #3a3a3a;
+            width: fit-content;
+            margin-top: 0.5rem;
         }
 
         /* Rotating Skills */
         .rotating-skills {
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease 0.2s backwards;
@@ -628,33 +653,45 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-date">2013 - 2017</div>
-                    <h3>🎓</h3>
-                    <div class="degree">Bachelor of Technology</div>
-                    <div class="university">Computer Science and Engineering</div>
-                    <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
-                    <span class="gpa">GPA: 3.6/4.0</span>
+                    <div class="logo-container">
+                        <img src="aktu-logo.png" alt="AKTU Logo">
+                    </div>
+                    <div class="info-section">
+                        <div class="timeline-date">2013 - 2017</div>
+                        <div class="degree">Bachelor of Technology</div>
+                        <div class="university">Computer Science and Engineering</div>
+                        <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
+                        <span class="gpa">GPA: 3.6/4.0</span>
+                    </div>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2021</div>
-                    <h3>🗽</h3>
-                    <div class="degree">Master of Science</div>
-                    <div class="university">Management of Technology</div>
-                    <div class="university">New York University</div>
-                    <span class="gpa">GPA: 3.8/4.0</span>
+                    <div class="logo-container">
+                        <img src="nyu-logo.png" alt="NYU Logo">
+                    </div>
+                    <div class="info-section">
+                        <div class="timeline-date">2019 - 2021</div>
+                        <div class="degree">Master of Science</div>
+                        <div class="university">Management of Technology</div>
+                        <div class="university">New York University</div>
+                        <span class="gpa">GPA: 3.8/4.0</span>
+                    </div>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <div class="timeline-date">2024 - 2026</div>
-                    <h3>📚</h3>
-                    <div class="degree">Master of Business Administration</div>
-                    <div class="university">New England College</div>
-                    <span class="gpa">In Progress</span>
+                    <div class="logo-container">
+                        <img src="nec-logo.png" alt="New England College Logo">
+                    </div>
+                    <div class="info-section">
+                        <div class="timeline-date">2024 - 2026</div>
+                        <div class="degree">Master of Business Administration</div>
+                        <div class="university">New England College</div>
+                        <span class="gpa">In Progress</span>
+                    </div>
                 </div>
             </div>
         </div>
