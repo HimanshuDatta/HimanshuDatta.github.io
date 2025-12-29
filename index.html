@@ -703,7 +703,7 @@
 
     <!-- New Year Pop-up -->
     <div class="new-year-popup" id="newYearPopup">
-        Wishing you innovation and success in 2026!!
+        Wishing you innovation and success in 2025!
     </div>
 
     <!-- Hero Section -->
@@ -983,26 +983,30 @@
         let currentSkillIndex = 0;
         const skillElement = document.getElementById('rotating-skill');
         
-        function rotateSkill() {
-            // Fade out
-            skillElement.style.opacity = '0';
-            
-            setTimeout(() => {
-                // Change skill
-                currentSkillIndex = (currentSkillIndex + 1) % skills.length;
-                skillElement.textContent = skills[currentSkillIndex];
-                
-                // Fade in
-                skillElement.style.opacity = '1';
-            }, 800);
-        }
-        
         // Initialize first skill
-        skillElement.textContent = skills[0];
-        skillElement.style.opacity = '1';
-        
-        // Rotate every 4 seconds (increased from 3 for smoother feel)
-        setInterval(rotateSkill, 4000);
+        if (skillElement) {
+            skillElement.textContent = skills[0];
+            skillElement.style.opacity = '1';
+            
+            function rotateSkill() {
+                // Fade out
+                skillElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    // Change skill
+                    currentSkillIndex = (currentSkillIndex + 1) % skills.length;
+                    skillElement.textContent = skills[currentSkillIndex];
+                    
+                    // Fade in
+                    setTimeout(() => {
+                        skillElement.style.opacity = '1';
+                    }, 50);
+                }, 800);
+            }
+            
+            // Rotate every 4 seconds
+            setInterval(rotateSkill, 4000);
+        }
 
         // Active navigation highlighting based on scroll position
         const sections = document.querySelectorAll('section[id]');
@@ -1030,13 +1034,16 @@
         window.addEventListener('scroll', highlightNavigation);
 
         // Logo click to scroll to top
-        document.querySelector('.logo').addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        const logoElement = document.querySelector('.logo');
+        if (logoElement) {
+            logoElement.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
-        });
+        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
