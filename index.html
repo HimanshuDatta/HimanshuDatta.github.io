@@ -4,15 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himanshu Datta | Product Manager</title>
-
-    <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7VLPV0EV9J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-7VLPV0EV9J');
-</script>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -396,13 +387,13 @@
             border: 1px solid #3a3a3a;
         }
 
-        /* Education Timeline - Vertical Square Tiles */
+        /* Education Timeline - Responsive Grid */
         .timeline {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            max-width: 900px;
-            margin: 0 0 0 auto;
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 2rem 0;
             width: 100%;
         }
@@ -410,10 +401,7 @@
         .timeline-item {
             position: relative;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
-            margin-left: auto;
+            justify-content: center;
         }
 
         .timeline-content {
@@ -423,17 +411,18 @@
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            gap: 1.5rem;
-            border-left: 4px solid #4fd1c5;
+            gap: 1rem;
+            border-top: 4px solid #4fd1c5;
             width: 100%;
-            max-width: 700px;
+            max-width: 380px;
+            text-align: center;
         }
 
         .timeline-content:hover {
-            transform: translateX(10px);
+            transform: translateY(-5px);
             box-shadow: 0 10px 40px rgba(79, 209, 197, 0.2);
         }
 
@@ -471,6 +460,8 @@
             gap: 0.3rem;
             min-width: 0;
             overflow: hidden;
+            align-items: center;
+            width: 100%;
         }
 
         .timeline-date {
@@ -487,7 +478,7 @@
         }
 
         .timeline-content .degree {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #4fd1c5;
             line-height: 1.2;
@@ -498,7 +489,7 @@
 
         .timeline-content .university {
             color: #b8b8b8;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.4;
             margin-bottom: 0.15rem;
             word-wrap: break-word;
@@ -510,7 +501,7 @@
             background: #1a1a1a;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #4fd1c5;
             font-weight: 600;
             border: 1px solid #3a3a3a;
@@ -652,7 +643,7 @@
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             box-shadow: 0 5px 25px rgba(79, 209, 197, 0.4);
-            z-index: 999;
+            z-index: 1001;
             opacity: 0;
             pointer-events: none;
             transition: all 0.5s ease;
