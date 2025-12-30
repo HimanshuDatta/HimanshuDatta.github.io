@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himanshu Datta | Product Manager</title>
-    <meta name="description" content="Product Manager focused on building thoughtful, user-centric digital experiences at the intersection of technology, design, and emerging platforms.">
-    <meta property="og:title" content="Himanshu Datta | Product Manager">
-    <meta property="og:description" content="I build user-centric digital products that explore how people interact with technology across emerging platforms, immersive experiences, and new computing paradigms.">
-    <meta property="og:url" content="https://himanshudatta.github.io/">
-    <meta property="og:type" content="website">
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Google Analytics -->
+    <!-- Replace G-XXXXXXXXXX with your actual Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
     
     <style>
         * {
@@ -33,7 +38,8 @@
             line-height: 1.6;
             color: #e8e8e8;
             overflow-x: hidden;
-            background: #1a1a1a;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background-attachment: fixed;
             width: 100%;
             max-width: 100vw;
             position: relative;
@@ -45,12 +51,12 @@
             top: 0;
             width: 100%;
             max-width: 100vw;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(26, 26, 26, 0.98);
             backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
+            padding: 1.2rem 5%;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-            overflow: hidden;
+            border-bottom: 1px solid rgba(79, 209, 197, 0.1);
         }
 
         nav .container {
@@ -60,7 +66,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         nav .logo {
@@ -81,7 +87,8 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         nav a {
@@ -90,6 +97,8 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
@@ -104,12 +113,41 @@
         nav a.active::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 2px;
             background: #4fd1c5;
             border-radius: 2px;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #4fd1c5;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* Hero Section */
@@ -120,25 +158,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background: transparent;
             position: relative;
             overflow: hidden;
             padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: drift 20s linear infinite;
-        }
-
-        @keyframes drift {
-            from { transform: translate(0, 0); }
-            to { transform: translate(50px, 50px); }
         }
 
         .hero-content {
@@ -209,6 +232,12 @@
             margin: 0 auto;
             width: 100%;
             overflow: hidden;
+            position: relative;
+        }
+
+        section > * {
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -256,10 +285,12 @@
         }
 
         .about-highlights {
-            background: linear-gradient(135deg, #252525 0%, #2a2a2a 100%);
+            background: rgba(37, 37, 37, 0.8);
+            backdrop-filter: blur(10px);
             padding: 2rem;
             border-radius: 15px;
             border-left: 4px solid #4fd1c5;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .about-highlights h4 {
@@ -301,8 +332,10 @@
         .stat-item {
             text-align: center;
             padding: 1.5rem;
-            background: #252525;
+            background: rgba(37, 37, 37, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .stat-number {
@@ -327,10 +360,11 @@
         }
 
         .project-card {
-            background: #252525;
+            background: rgba(37, 37, 37, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             width: 100%;
@@ -339,7 +373,7 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(79, 209, 197, 0.2);
+            box-shadow: 0 16px 56px rgba(79, 209, 197, 0.3);
         }
 
         .project-image {
@@ -386,12 +420,13 @@
         }
 
         .tag {
-            background: #1a1a1a;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(5px);
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             color: #b8b8b8;
-            border: 1px solid #3a3a3a;
+            border: 1px solid rgba(79, 209, 197, 0.2);
         }
 
         /* Education Timeline - Responsive Grid */
@@ -414,10 +449,11 @@
         }
 
         .timeline-content {
-            background: #252525;
+            background: rgba(37, 37, 37, 0.8);
+            backdrop-filter: blur(10px);
             padding: 1.5rem;
             border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
@@ -432,7 +468,7 @@
 
         .timeline-content:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(79, 209, 197, 0.2);
+            box-shadow: 0 12px 48px rgba(79, 209, 197, 0.3);
         }
 
         .timeline-content .logo-container {
@@ -507,13 +543,14 @@
 
         .timeline-content .gpa {
             display: inline-block;
-            background: #1a1a1a;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(5px);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.75rem;
             color: #4fd1c5;
             font-weight: 600;
-            border: 1px solid #3a3a3a;
+            border: 1px solid rgba(79, 209, 197, 0.3);
             width: fit-content;
             margin-top: 0.4rem;
             white-space: nowrap;
@@ -596,11 +633,21 @@
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background: rgba(37, 37, 37, 0.8);
+            backdrop-filter: blur(10px);
             color: white;
             text-align: center;
             border-radius: 20px;
             padding: 5rem 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(79, 209, 197, 0.2);
+        }
+
+        .contact > * {
+            position: relative;
+            z-index: 1;
         }
 
         .contact h2 {
@@ -642,7 +689,7 @@
             padding: 2rem;
             color: #b8b8b8;
             font-size: 0.9rem;
-            background: #1a1a1a;
+            background: transparent;
         }
 
         /* New Year Pop-up */
@@ -703,13 +750,19 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="#hero" class="logo">Himanshu Datta</a>
-            <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            <a href="#hero" class="logo" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Logo">Himanshu Datta</a>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#about" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="About">About</a></li>
+                <li><a href="#education" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Education">Education</a></li>
+                <li><a href="#work" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Professional Work">Work</a></li>
+                <li><a href="#personal-projects" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Personal Projects">Projects</a></li>
+                <li><a href="#skills" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Skills">Skills</a></li>
+                <li><a href="#contact" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -727,7 +780,7 @@
                 <span class="skill-word" id="rotating-skill"></span>
             </h1>
             <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
-            <a href="#projects" class="cta-button">See My Work</a>
+            <a href="#projects" class="cta-button" data-ga-event="click" data-ga-category="CTA" data-ga-label="Hero - See My Work">See My Work</a>
         </div>
     </section>
 
@@ -736,18 +789,20 @@
         <h2 class="section-title">My Story</h2>
         <div class="about-content">
             <div class="about-text">
-                <h3>Product Manager Specializing in Innovation at Scale</h3>
+                <h3>Driving Innovation Through Strategic Product Leadership</h3>
                 <p>I'm a Product Manager with a proven track record of transforming emerging technologies into market-leading products. Throughout my career, I've led initiatives that span spatial computing, creative operations, and enterprise solutions—delivering measurable impact across luxury retail, consumer goods, and government sectors.</p>
                 <p>From pioneering Apple Vision Pro experiences that redefined spatial retail to optimizing creative workflows that increased team productivity by 15%, I combine technical depth with business acumen. My work has touched millions of users, generated new revenue streams, and established industry benchmarks in immersive technology and product innovation.</p>
             </div>
             <div class="about-highlights">
-                <h4>What I Bring to the Table</h4>
+                <h4>Career Impact & Achievements</h4>
                 <ul>
-                    <li>Spearheaded 0-to-1 products generating new revenue streams</li>
-                     <li>Led 150+ virtual experience launches for luxury brands including Dior, Chanel, and Prada</li>
-                    <li>Pioneered Apple Vision Pro experiences, defining the future of spatial retail</li>
-                    <li>Managed high-profile collaborations with celebrity partners</li>
-                    <li>Increased user engagement by 30% through gamification strategies</li>
+                    <li>Launched 150+ digital experiences for global brands including Dior, Chanel, Prada, Ralph Lauren, and Fisher-Price</li>
+                    <li>Pioneered spatial computing on Apple Vision Pro and established new standards for luxury retail in AR/VR</li>
+                    <li>Led 0-to-1 product development on Roblox platform, creating entirely new revenue streams and market opportunities</li>
+                    <li>Drove 30% increase in user engagement and 20% increase in platform time through strategic gamification initiatives</li>
+                    <li>Orchestrated high-profile partnerships including Fisher-Price x John Legend collaboration with multi-platform launches</li>
+                    <li>Optimized enterprise workflows achieving 15% productivity gains while managing multi-million dollar creative budgets</li>
+                    <li>Delivered traffic analysis solutions for NYC DOT and DDC, improving urban infrastructure decision-making</li>
                 </ul>
             </div>
         </div>
@@ -759,15 +814,16 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
-                 <div class="logo-container">
-                        <img src="nec-logo.png" alt="New England College Logo">
+                    <div class="logo-container">
+                        <img src="aktu-logo.png" alt="AKTU Logo">
                     </div>
                     <div class="info-section">
-                        <div class="timeline-date">2024 - 2026</div>
-                        <div class="degree">Master of Business Administration</div>
-                        <div class="university">New England College</div>
-                        <span class="gpa">In Progress</span>
-                    </div>   
+                        <div class="timeline-date">2013 - 2017</div>
+                        <div class="degree">Bachelor of Technology</div>
+                        <div class="university">Computer Science and Engineering</div>
+                        <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
+                        <span class="gpa">GPA: 3.6/4.0</span>
+                    </div>
                 </div>
             </div>
 
@@ -788,24 +844,23 @@
 
             <div class="timeline-item">
                 <div class="timeline-content">
-                 <div class="logo-container">
-                        <img src="aktu-logo.png" alt="AKTU Logo">
+                    <div class="logo-container">
+                        <img src="nec-logo.png" alt="New England College Logo">
                     </div>
                     <div class="info-section">
-                        <div class="timeline-date">2013 - 2017</div>
-                        <div class="degree">Bachelor of Technology</div>
-                        <div class="university">Computer Science and Engineering</div>
-                        <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
-                        <span class="gpa">GPA: 3.6/4.0</span>
-                    </div>   
+                        <div class="timeline-date">2024 - 2026</div>
+                        <div class="degree">Master of Business Administration</div>
+                        <div class="university">New England College</div>
+                        <span class="gpa">In Progress</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
+    <section id="work">
+        <h2 class="section-title">Professional Work</h2>
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-image">🥽</div>
@@ -899,6 +954,30 @@
         </div>
     </section>
 
+    <!-- Personal Projects Section -->
+    <section id="personal-projects">
+        <h2 class="section-title">Personal Projects</h2>
+        <p style="text-align: center; color: #b8b8b8; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Side projects and experiments where I explore new technologies, build for fun, and push creative boundaries.
+        </p>
+        <div class="projects-grid">
+            <!-- Personal project cards will go here -->
+            <div class="project-card" data-ga-event="click" data-ga-category="Personal Project" data-ga-label="Coming Soon">
+                <div class="project-image" style="background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);">🚀</div>
+                <div class="project-content">
+                    <h3 class="project-title">Projects Coming Soon</h3>
+                    <p class="project-role">Personal Work</p>
+                    <p class="project-description">I'm currently documenting my personal projects and experiments. Check back soon to see what I'm building!</p>
+                    <div class="project-tags">
+                        <span class="tag">Innovation</span>
+                        <span class="tag">Learning</span>
+                        <span class="tag">Experimentation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills">
         <h2 class="section-title">Skills & Expertise</h2>
@@ -955,8 +1034,8 @@
             <h2>Let's Build the Future Together</h2>
             <p>Interested in spatial computing, luxury tech, or innovative product experiences? Let's connect.</p>
             <div class="contact-links">
-                <a href="mailto:h.datta18@gmail.com" class="contact-link">Email Me</a>
-                <a href="https://linkedin.com/in/himanshu-datta" class="contact-link" target="_blank">LinkedIn</a>
+                <a href="mailto:h.datta18@gmail.com" class="contact-link" data-ga-event="click" data-ga-category="Contact" data-ga-label="Email">Email Me</a>
+                <a href="https://linkedin.com/in/himanshu-datta" class="contact-link" target="_blank" data-ga-event="click" data-ga-category="Contact" data-ga-label="LinkedIn">LinkedIn</a>
                 <!-- <a href="tel:3474223123" class="contact-link">Call Me</a> -->
             </div>
         </div>
@@ -968,6 +1047,60 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                navMenu.classList.toggle('mobile-open');
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('mobile-open');
+                });
+            });
+        }
+
+        // Google Analytics Event Tracking
+        function trackGAEvent(category, action, label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+            }
+        }
+
+        // Add click tracking to all elements with data-ga-event
+        document.querySelectorAll('[data-ga-event]').forEach(element => {
+            element.addEventListener('click', function() {
+                const category = this.getAttribute('data-ga-category');
+                const action = this.getAttribute('data-ga-event');
+                const label = this.getAttribute('data-ga-label');
+                trackGAEvent(category, action, label);
+            });
+        });
+
+        // Track scroll depth
+        let scrollDepths = [25, 50, 75, 100];
+        let scrollTracked = [];
+
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            scrollDepths.forEach(depth => {
+                if (scrollPercent >= depth && !scrollTracked.includes(depth)) {
+                    scrollTracked.push(depth);
+                    trackGAEvent('Scroll Depth', 'scroll', `${depth}%`);
+                }
+            });
+        });
+
         // New Year Pop-up
         setTimeout(() => {
             const popup = document.getElementById('newYearPopup');
