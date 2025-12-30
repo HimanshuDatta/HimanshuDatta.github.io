@@ -91,6 +91,76 @@
             align-items: center;
         }
 
+        nav ul li {
+            position: relative;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+            border-radius: 10px;
+            min-width: 180px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(79, 209, 197, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            transform: translateX(-50%) translateY(-10px);
+            z-index: 1000;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: #e8e8e8;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(79, 209, 197, 0.1);
+            color: #4fd1c5;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
         nav a {
             text-decoration: none;
             color: #e8e8e8;
@@ -246,6 +316,7 @@
             text-align: center;
             position: relative;
             word-wrap: break-word;
+            padding: 0 1rem;
         }
 
         .section-title::after {
@@ -759,8 +830,13 @@
             <ul id="navMenu">
                 <li><a href="#about" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="About">About</a></li>
                 <li><a href="#education" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Education">Education</a></li>
-                <li><a href="#work" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Professional Work">Work</a></li>
-                <li><a href="#personal-projects" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Personal Projects">Projects</a></li>
+                <li class="dropdown">
+                    <a href="#work" class="nav-link dropdown-toggle" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Projects">Projects</a>
+                    <div class="dropdown-menu">
+                        <a href="#work" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Professional Work">Professional Work</a>
+                        <a href="#personal-projects" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Personal Projects">Personal Projects</a>
+                    </div>
+                </li>
                 <li><a href="#skills" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Skills">Skills</a></li>
                 <li><a href="#contact" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Contact">Contact</a></li>
             </ul>
@@ -1057,11 +1133,33 @@
                 navMenu.classList.toggle('mobile-open');
             });
             
-            // Close menu when clicking a link
+            // Close menu when clicking a link (except dropdown toggle)
             document.querySelectorAll('.nav-link').forEach(link => {
+                if (!link.classList.contains('dropdown-toggle')) {
+                    link.addEventListener('click', () => {
+                        mobileMenuToggle.classList.remove('active');
+                        navMenu.classList.remove('mobile-open');
+                    });
+                }
+            });
+
+            // Handle dropdown clicks on mobile
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = toggle.closest('.dropdown');
+                        dropdown.classList.toggle('mobile-open');
+                    }
+                });
+            });
+
+            // Close dropdown menu items on mobile
+            document.querySelectorAll('.dropdown-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenuToggle.classList.remove('active');
                     navMenu.classList.remove('mobile-open');
+                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('mobile-open'));
                 });
             });
         }
