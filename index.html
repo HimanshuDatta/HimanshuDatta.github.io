@@ -1,1322 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Datta | Product Manager</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    
-    <!-- Google Analytics -->
-    <!-- Replace G-XXXXXXXXXX with your actual Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VLPV0EV9J"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-7VLPV0EV9J');
-    </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e8e8e8;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            background-attachment: fixed;
-            width: 100%;
-            max-width: 100vw;
-            position: relative;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 100vw;
-            background: rgba(26, 26, 26, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 5%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-            border-bottom: 1px solid rgba(79, 209, 197, 0.1);
-        }
-
-        nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #4fd1c5 0%, #2c5364 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        nav .logo:hover {
-            opacity: 0.8;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            cursor: pointer;
-        }
-
-        .dropdown-toggle::after {
-            content: '▼';
-            font-size: 0.7rem;
-            transition: transform 0.3s;
-        }
-
-        .dropdown:hover .dropdown-toggle::after {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(26, 26, 26, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 0;
-            border-radius: 10px;
-            min-width: 180px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(79, 209, 197, 0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-            transform: translateX(-50%) translateY(-10px);
-            z-index: 1000;
-            margin-top: 0.5rem;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            color: #e8e8e8;
-            text-decoration: none;
-            transition: background 0.3s, color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(79, 209, 197, 0.1);
-            color: #4fd1c5;
-        }
-
-        .dropdown-menu a::after {
-            display: none;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #e8e8e8;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-            padding: 0.5rem 0;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: #4fd1c5;
-        }
-
-        nav a.active {
-            color: #4fd1c5;
-            font-weight: 600;
-        }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #4fd1c5;
-            border-radius: 2px;
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #4fd1c5;
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            width: 100%;
-            max-width: 100vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 1;
-            padding: 2rem;
-            max-width: 900px;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: #4fd1c5;
-            color: #1a1a1a;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(79, 209, 197, 0.4);
-            background: #3bb5a8;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 6rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        section > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            word-wrap: break-word;
-            padding: 0 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #4fd1c5 0%, #2c5364 100%);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #e8e8e8;
-            line-height: 1.3;
-            word-wrap: break-word;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: #e8e8e8;
-            line-height: 1.8;
-            word-wrap: break-word;
-        }
-
-        .about-highlights {
-            background: rgba(37, 37, 37, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid #4fd1c5;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-
-        .about-highlights h4 {
-            color: #4fd1c5;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .about-highlights ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .about-highlights li {
-            padding: 0.7rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-            color: #b8b8b8;
-            line-height: 1.6;
-        }
-
-        .about-highlights li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #4fd1c5;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2.5rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(37, 37, 37, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #4fd1c5;
-            display: block;
-        }
-
-        .stat-label {
-            color: #b8b8b8;
-            font-size: 0.9rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .project-card {
-            background: rgba(37, 37, 37, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 16px 56px rgba(79, 209, 197, 0.3);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #e8e8e8;
-            word-wrap: break-word;
-        }
-
-        .project-role {
-            color: #4fd1c5;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            word-wrap: break-word;
-        }
-
-        .project-description {
-            color: #b8b8b8;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            word-wrap: break-word;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #b8b8b8;
-            border: 1px solid rgba(79, 209, 197, 0.2);
-        }
-
-        /* Education Timeline - Responsive Grid */
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 0 0 0;
-            padding: 2rem 0;
-            width: 100%;
-            justify-items: start;
-        }
-
-        .timeline-item {
-            position: relative;
-            display: flex;
-            justify-content: flex-start;
-            width: 100%;
-        }
-
-        .timeline-content {
-            background: rgba(37, 37, 37, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 1rem;
-            border-top: 4px solid #4fd1c5;
-            width: 100%;
-            max-width: 380px;
-            text-align: center;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 48px rgba(79, 209, 197, 0.3);
-        }
-
-        .timeline-content .logo-container {
-            min-width: 110px;
-            width: 110px;
-            height: 110px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 15px;
-            padding: 0.5rem;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .timeline-content .logo-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
-        .timeline-content .logo-container img[alt="NYU Logo"] {
-            max-width: 98%;
-            max-height: 98%;
-            object-fit: cover;
-            transform: scale(1.2);
-        }
-
-        .timeline-content .info-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-            min-width: 0;
-            overflow: hidden;
-            align-items: center;
-            width: 100%;
-        }
-
-        .timeline-date {
-            background: #4fd1c5;
-            color: #1a1a1a;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            width: fit-content;
-            margin-bottom: 0.4rem;
-            white-space: nowrap;
-        }
-
-        .timeline-content .degree {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #4fd1c5;
-            line-height: 1.2;
-            margin-bottom: 0.2rem;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .timeline-content .university {
-            color: #b8b8b8;
-            font-size: 0.85rem;
-            line-height: 1.4;
-            margin-bottom: 0.15rem;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .timeline-content .gpa {
-            display: inline-block;
-            background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #4fd1c5;
-            font-weight: 600;
-            border: 1px solid rgba(79, 209, 197, 0.3);
-            width: fit-content;
-            margin-top: 0.4rem;
-            white-space: nowrap;
-        }
-
-        /* Rotating Skills */
-        .rotating-skills {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-            min-height: 3.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            white-space: nowrap;
-            overflow: visible;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            max-width: 100%;
-        }
-
-        .excel-text {
-            display: inline-block;
-        }
-
-        .skill-word {
-            display: inline-block;
-            font-weight: 700;
-            color: #4fd1c5;
-            text-shadow: 0 2px 10px rgba(79, 209, 197, 0.5);
-            transition: opacity 0.8s ease-in-out;
-            white-space: normal;
-            text-align: center;
-            max-width: 90vw;
-            word-wrap: break-word;
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; transform: translateY(10px); }
-            10%, 90% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            color: white;
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .skill-category li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: rgba(37, 37, 37, 0.8);
-            backdrop-filter: blur(10px);
-            color: white;
-            text-align: center;
-            border-radius: 20px;
-            padding: 5rem 3rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(79, 209, 197, 0.2);
-        }
-
-        .contact > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            padding: 1rem 2rem;
-            background: #4fd1c5;
-            color: #1a1a1a;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .contact-link:hover {
-            transform: scale(1.05);
-            background: #3bb5a8;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #b8b8b8;
-            font-size: 0.9rem;
-            background: transparent;
-        }
-
-        /* New Year Pop-up */
-        .new-year-popup {
-            position: fixed;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            background: linear-gradient(135deg, #4fd1c5 0%, #2c5364 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            box-shadow: 0 5px 25px rgba(79, 209, 197, 0.4);
-            z-index: 1001;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.5s ease;
-            font-size: 0.95rem;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .new-year-popup.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-            pointer-events: auto;
-        }
-
-        .new-year-popup::before {
-            content: '🎉';
-            margin-right: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .new-year-popup::after {
-            content: '🎊';
-            margin-left: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .rotating-skills { font-size: 2rem; min-height: 3rem; }
-            .about-content { grid-template-columns: 1fr; }
-            .stats { grid-template-columns: 1fr; }
-            nav ul { gap: 1.5rem; }
-            section { padding: 4rem 5%; }
-            
-            .timeline::before { left: 30px; }
-            .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 60px; }
-            .timeline-content { width: 100%; }
-            .timeline-dot { left: 30px; }
-            .timeline-date { left: 30px; transform: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himanshu Datta | Product Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── NOTIFICATION BANNER ── */
+    .notification-banner {
+      background: linear-gradient(135deg, #1a56db 0%, #0d3b8f 100%);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+      box-shadow: 0 2px 12px rgba(26,86,219,0.35);
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .notification-banner:hover {
+      background: linear-gradient(135deg, #1648c4 0%, #0b2f7a 100%);
+    }
+    .notification-banner .badge {
+      background: #f59e0b;
+      color: #1a1a1a;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .notification-banner .banner-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .notification-banner .arrow {
+      font-size: 16px;
+      animation: nudge 1.5s ease-in-out infinite;
+    }
+    @keyframes nudge {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
+
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0f1e;
+      --surface: #111827;
+      --surface2: #1f2937;
+      --border: #1f2937;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent2: #6366f1;
+      --accent-glow: rgba(59,130,246,0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky;
+      top: 42px;
+      z-index: 100;
+      background: rgba(10,15,30,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+    }
+    nav .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,130,246,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(99,102,241,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .hero-content { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: "●"; font-size: 8px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+    h1 .gradient-text {
+      background: linear-gradient(135deg, #3b82f6, #818cf8, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+    .stat { }
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 100px 5%; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--surface); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .impact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .impact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .impact-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .impact-item p { font-size: 14px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+    .impact-item p strong { color: var(--text); }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--bg); }
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .edu-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .edu-year {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .edu-degree { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+    .edu-school { color: var(--text-muted); font-size: 14px; margin-bottom: 8px; }
+    .edu-gpa {
+      display: inline-block;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── WORK ── */
+    #work { background: var(--surface); }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .work-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .work-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .work-card:hover::before { opacity: 1; }
+    .work-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(59,130,246,0.12); }
+    .work-card-icon { font-size: 32px; margin-bottom: 16px; }
+    .work-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .work-card .work-role { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+    .work-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      letter-spacing: 0.3px;
+    }
+
+    /* ── PERSONAL PROJECTS ── */
+    #personal-projects { background: var(--bg); }
+    .personal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      max-width: 480px;
+    }
+    .personal-card .work-card-icon { font-size: 40px; }
+    .personal-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .personal-card p { color: var(--text-muted); font-size: 15px; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--surface); }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .skill-group {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .skill-group h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-group ul { list-style: none; }
+    .skill-group li {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-group li::before { content: "▸"; color: var(--accent); font-size: 10px; flex-shrink: 0; }
+    .skill-group li:last-child { border-bottom: none; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); text-align: center; }
+    #contact h2 { margin-bottom: 16px; }
+    #contact p { color: var(--text-muted); font-size: 16px; margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .contact-link {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px 5%;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      nav ul { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#hero" class="logo" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Logo">Himanshu Datta</a>
-            <div class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navMenu">
-                <li><a href="#about" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="About">About</a></li>
-                <li><a href="#education" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Education">Education</a></li>
-                <li class="dropdown">
-                    <a href="#work" class="nav-link dropdown-toggle" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Projects">Projects</a>
-                    <div class="dropdown-menu">
-                        <a href="#work" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Professional Work">Professional Work</a>
-                        <a href="#personal-projects" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Personal Projects">Personal Projects</a>
-                    </div>
-                </li>
-                <li><a href="#skills" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Skills">Skills</a></li>
-                <li><a href="#contact" class="nav-link" data-ga-event="click" data-ga-category="Navigation" data-ga-label="Contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- New Year Pop-up -->
-    <div class="new-year-popup" id="newYearPopup">
-        Wishing you innovation and success in 2026!
+  <!-- ── NOTIFICATION BANNER ── -->
+  <div class="notification-banner" onclick="window.open('HimanshuDattaRes26.pdf', '_blank')" title="View Resume">
+    <span class="badge">Open to Work</span>
+    <span class="banner-text">
+      Actively seeking <strong>Senior / Staff Product Manager</strong> roles at tech startups & FAANG
+      &nbsp;·&nbsp; Click to view my resume
+      <span class="arrow">→</span>
+    </span>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav id="top-nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Himanshu<span>.</span></a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1 class="rotating-skills">
-                <span class="excel-text">I specialize in</span>
-                <span class="skill-word" id="rotating-skill"></span>
-            </h1>
-            <p class="tagline">Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence across digital and physical touchpoints.</p>
-            <a href="#work" class="cta-button" data-ga-event="click" data-ga-category="CTA" data-ga-label="Hero - See My Work">See My Work</a>
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Available for PM Roles · New York, NY</div>
+      <h1>I specialize in<br><span class="gradient-text">Product Management</span></h1>
+      <p class="hero-desc">
+        Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">See My Work</a>
+        <a href="HimanshuDattaRes26.pdf" target="_blank" class="btn-secondary">Download Resume →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Enterprise Experiences Launched</div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">My Story</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Driving Innovation Through Strategic Product Leadership</h3>
-                <p>I'm a Product Manager with a proven track record of transforming emerging technologies into market-leading products. Throughout my career, I've led initiatives that span spatial computing, creative operations, and enterprise solutions—delivering measurable impact across luxury retail, consumer goods, and government sectors.</p>
-                <p>From pioneering Apple Vision Pro experiences that redefined spatial retail to optimizing creative workflows that increased team productivity by 15%, I combine technical depth with business acumen. My work has touched millions of users, generated new revenue streams, and established industry benchmarks in immersive technology and product innovation.</p>
-            </div>
-            <div class="about-highlights">
-                <h4>Career Impact & Achievements</h4>
-                <ul>
-                    <li>Launched 150+ digital experiences for global brands including Dior, Chanel, Prada, Ralph Lauren, and Fisher-Price</li>
-                    <li>Pioneered spatial computing on Apple Vision Pro and established new standards for luxury retail in AR/VR</li>
-                    <li>Led 0-to-1 product development on Roblox platform, creating entirely new revenue streams and market opportunities</li>
-                    <li>Drove 30% increase in user engagement and 20% increase in platform time through strategic gamification initiatives</li>
-                    <li>Orchestrated high-profile partnerships including Fisher-Price x John Legend collaboration with multi-platform launches</li>
-                    <li>Optimized enterprise workflows achieving 15% productivity gains while managing multi-million dollar creative budgets</li>
-                    <li>Delivered traffic analysis solutions for NYC DOT and DDC, improving urban infrastructure decision-making</li>
-                </ul>
-            </div>
+        <div class="stat">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Years in Product</div>
         </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <h2 class="section-title">Education Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="logo-container">
-                        <img src="aktu-logo.png" alt="AKTU Logo">
-                    </div>
-                    <div class="info-section">
-                        <div class="timeline-date">2013 - 2017</div>
-                        <div class="degree">Bachelor of Technology</div>
-                        <div class="university">Computer Science and Engineering</div>
-                        <div class="university">Dr. A.P.J Abdul Kalam Technical University</div>
-                        <span class="gpa">GPA: 3.6/4.0</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="logo-container">
-                        <img src="nyu-logo.png" alt="NYU Logo">
-                    </div>
-                    <div class="info-section">
-                        <div class="timeline-date">2019 - 2021</div>
-                        <div class="degree">Master of Science</div>
-                        <div class="university">Management of Technology</div>
-                        <div class="university">New York University</div>
-                        <span class="gpa">GPA: 3.8/4.0</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="logo-container">
-                        <img src="nec-logo.png" alt="New England College Logo">
-                    </div>
-                    <div class="info-section">
-                        <div class="timeline-date">2024 - 2026</div>
-                        <div class="degree">Master of Business Administration</div>
-                        <div class="university">New England College</div>
-                        <span class="gpa">In Progress</span>
-                    </div>
-                </div>
-            </div>
+        <div class="stat">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">Avg. Engagement Lift</div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="work">
-        <h2 class="section-title">Professional Work</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">🥽</div>
-                <div class="project-content">
-                    <h3 class="project-title">Apple Vision Pro: Luxury Retail Redefined</h3>
-                    <p class="project-role">Product Manager | Obsess Inc.</p>
-                    <p class="project-description">Led the development of groundbreaking spatial experiences for J.Crew, Mytheresa, and Chanel on Apple Vision Pro. Defined product strategy and worked with cross-functional teams to create immersive shopping experiences that set the standard for spatial computing in luxury retail.</p>
-                    <div class="project-tags">
-                        <span class="tag">Apple Vision Pro</span>
-                        <span class="tag">Spatial Computing</span>
-                        <span class="tag">Luxury Retail</span>
-                        <span class="tag">XR/VR</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">✨</div>
-                <div class="project-content">
-                    <h3 class="project-title">3D Virtual Stores for Luxury Brands</h3>
-                    <p class="project-role">Sole Product Owner | Obsess Inc.</p>
-                    <p class="project-description">Served as sole Product Owner for Charlotte Tilbury, Prada, Ralph Lauren, K18, and Dior, evolving their 3D virtual store journeys. Designed and delivered 3D gamification experiences that increased customer engagement by 30% and platform time by 20%, launching 150+ virtual experiences across luxury brands.</p>
-                    <div class="project-tags">
-                        <span class="tag">3D Gamification</span>
-                        <span class="tag">E-commerce</span>
-                        <span class="tag">Product Strategy</span>
-                        <span class="tag">User Engagement</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🎵</div>
-                <div class="project-content">
-                    <h3 class="project-title">Fisher-Price x John Legend Collaboration</h3>
-                    <p class="project-role">Lead Project Manager | Mattel Inc.</p>
-                    <p class="project-description">Orchestrated a 3-fold project collaboration between Fisher-Price and John Legend: created a children's magazine, curated a children's playlist, and produced a launch event at John Legend's California home. Led the iHeartRadio station launch, managing cross-functional teams across legal, finance, merchandising, and global stakeholders.</p>
-                    <div class="project-tags">
-                        <span class="tag">Celebrity Partnership</span>
-                        <span class="tag">Multi-Platform Launch</span>
-                        <span class="tag">Stakeholder Management</span>
-                        <span class="tag">Budget Management</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🎮</div>
-                <div class="project-content">
-                    <h3 class="project-title">Roblox Virtual Experiences</h3>
-                    <p class="project-role">Product Manager | Obsess Inc.</p>
-                    <p class="project-description">Spearheaded Roblox experiences for luxury brands, strategizing and defining product roadmap from 0 to 1. Created a new revenue stream by enabling brands to reach younger audiences through interactive gaming experiences, integrating AR/VR technologies for Oculus and other platforms.</p>
-                    <div class="project-tags">
-                        <span class="tag">Roblox</span>
-                        <span class="tag">Gaming</span>
-                        <span class="tag">0-to-1 Product</span>
-                        <span class="tag">Revenue Generation</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">🛠️</div>
-                <div class="project-content">
-                    <h3 class="project-title">Self-Serve CMS for Luxury Fashion</h3>
-                    <p class="project-role">Product Manager | Obsess Inc.</p>
-                    <p class="project-description">Oversaw development of a self-serve content management system enabling luxury fashion brands to manage virtual store content independently. Achieved full scalability, contributing to increased customer satisfaction and retention while reducing operational overhead.</p>
-                    <div class="project-tags">
-                        <span class="tag">Content Management</span>
-                        <span class="tag">Scalability</span>
-                        <span class="tag">B2B SaaS</span>
-                        <span class="tag">Customer Success</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">📊</div>
-                <div class="project-content">
-                    <h3 class="project-title">Creative Operations Optimization</h3>
-                    <p class="project-role">Lead Project Manager | Mattel Inc.</p>
-                    <p class="project-description">Transformed Fisher-Price creative department operations using Adobe Workfront. Owned department budgeting, led quarterly reviews, and introduced new PM techniques that increased team productivity by 15%. Managed end-to-end creative workflows for all brand projects.</p>
-                    <div class="project-tags">
-                        <span class="tag">Process Optimization</span>
-                        <span class="tag">Budget Management</span>
-                        <span class="tag">Team Leadership</span>
-                        <span class="tag">Adobe Workfront</span>
-                    </div>
-                </div>
-            </div>
+        <div class="stat">
+          <div class="stat-number">0→1</div>
+          <div class="stat-label">Products Built from Scratch</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Personal Projects Section -->
-    <section id="personal-projects">
-        <h2 class="section-title">Personal Projects</h2>
-        <p style="text-align: center; color: #b8b8b8; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-            Side projects and experiments where I explore new technologies, build for fun, and push creative boundaries.
-        </p>
-        <div class="projects-grid">
-            <!-- Personal project cards will go here -->
-            <div class="project-card" data-ga-event="click" data-ga-category="Personal Project" data-ga-label="Coming Soon">
-                <div class="project-image" style="background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);">🚀</div>
-                <div class="project-content">
-                    <h3 class="project-title">Projects Coming Soon</h3>
-                    <p class="project-role">Personal Work</p>
-                    <p class="project-description">I'm currently documenting my personal projects and experiments. Check back soon to see what I'm building!</p>
-                    <div class="project-tags">
-                        <span class="tag">Innovation</span>
-                        <span class="tag">Learning</span>
-                        <span class="tag">Experimentation</span>
-                    </div>
-                </div>
-            </div>
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label">My Story</div>
+      <h2>Driving Innovation Through<br>Strategic Product Leadership</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a Product Manager with a proven track record of transforming emerging technologies into market-leading products. Throughout my career, I've led initiatives that span spatial computing, creative operations, and enterprise solutions—delivering measurable impact across luxury retail, consumer goods, and government sectors.</p>
+          <p>From pioneering Apple Vision Pro experiences that redefined spatial retail to optimizing creative workflows that increased team productivity by 15%, I combine technical depth with business acumen. My work has touched millions of users, generated new revenue streams, and established industry benchmarks in immersive technology and product innovation.</p>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Product Strategy & Vision</h3>
-                <ul>
-                    <li>0-to-1 Product Development</li>
-                    <li>Product Roadmapping</li>
-                    <li>Market & Competitive Analysis</li>
-                    <li>Go-to-Market Strategy</li>
-                    <li>Feature Prioritization</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Emerging Technologies</h3>
-                <ul>
-                    <li>Apple Vision Pro & Spatial Computing</li>
-                    <li>AR/VR/XR Technologies</li>
-                    <li>3D Gamification</li>
-                    <li>Roblox Platform Development</li>
-                    <li>Oculus & Meta Platforms</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Technical & Analytics</h3>
-                <ul>
-                    <li>Software Development Concepts</li>
-                    <li>API Integration</li>
-                    <li>Data-Driven Decision Making</li>
-                    <li>A/B Testing & Analytics</li>
-                    <li>System Architecture</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Leadership & Collaboration</h3>
-                <ul>
-                    <li>Cross-Functional Team Leadership</li>
-                    <li>Stakeholder Management</li>
-                    <li>Budget & Resource Management</li>
-                    <li>Agile/Scrum Methodologies</li>
-                    <li>Executive Communication</li>
-                </ul>
-            </div>
+        <div class="impact-list">
+          <div class="impact-item">
+            <div class="impact-icon">🚀</div>
+            <p><strong>150+ digital experiences</strong> launched for global brands including Dior, Chanel, Prada, Ralph Lauren, and Fisher-Price</p>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon">🥽</div>
+            <p><strong>Pioneered spatial commerce</strong> on Apple Vision Pro and established new standards for luxury retail in AR/VR</p>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon">📈</div>
+            <p><strong>30% increase in user engagement</strong> and 20% increase in platform time through strategic gamification</p>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon">🎯</div>
+            <p><strong>~20% improvement in on-time delivery</strong> through delivery governance frameworks at Mattel</p>
+          </div>
+          <div class="impact-item">
+            <div class="impact-icon">🏙️</div>
+            <p><strong>AI-driven traffic analytics</strong> delivered for NYC DOT & DDC, improving urban infrastructure decision-making</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" style="padding: 3rem 5%;">
-        <div class="contact">
-            <h2>Let's Build the Future Together</h2>
-            <p>Interested in spatial computing, luxury tech, or innovative product experiences? Let's connect.</p>
-            <div class="contact-links">
-                <a href="mailto:h.datta18@gmail.com" class="contact-link" data-ga-event="click" data-ga-category="Contact" data-ga-label="Email">Email Me</a>
-                <a href="https://linkedin.com/in/himanshu-datta" class="contact-link" target="_blank" data-ga-event="click" data-ga-category="Contact" data-ga-label="LinkedIn">LinkedIn</a>
-                <!-- <a href="tel:3474223123" class="contact-link">Call Me</a> -->
-            </div>
+  <!-- ── EDUCATION ── -->
+  <section id="education">
+    <div class="section-inner">
+      <div class="section-label">Education Journey</div>
+      <h2>Academic Foundation</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-year">2013 – 2017</div>
+          <div class="edu-degree">Bachelor of Technology</div>
+          <div class="edu-school">Computer Science & Engineering<br>Dr. A.P.J Abdul Kalam Technical University</div>
+          <span class="edu-gpa">GPA: 3.5 / 4.0</span>
         </div>
-    </section>
+        <div class="edu-card">
+          <div class="edu-year">2019 – 2021</div>
+          <div class="edu-degree">Master of Science</div>
+          <div class="edu-school">Management of Technology<br>New York University</div>
+          <span class="edu-gpa">GPA: 3.8 / 4.0</span>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2024 – 2026</div>
+          <div class="edu-degree">MBA</div>
+          <div class="edu-school">New England College<br>&nbsp;</div>
+          <span class="edu-gpa">In Progress</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Himanshu Datta. Crafting immersive experiences at the intersection of luxury and technology.</p>
-    </footer>
+  <!-- ── WORK ── -->
+  <section id="work">
+    <div class="section-inner">
+      <div class="section-label">Professional Work</div>
+      <h2>Selected Projects</h2>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-card-icon">🥽</div>
+          <h3>Apple Vision Pro: Luxury Retail Redefined</h3>
+          <div class="work-role">Product Manager · Obsess Inc.</div>
+          <p>Led the development of groundbreaking spatial experiences for J.Crew, Mytheresa, and Chanel on Apple Vision Pro. Defined product strategy and worked with cross-functional teams to create immersive shopping experiences that set the standard for spatial computing in luxury retail.</p>
+          <div class="tags">
+            <span class="tag">Apple Vision Pro</span>
+            <span class="tag">Spatial Computing</span>
+            <span class="tag">Luxury Retail</span>
+            <span class="tag">XR/VR</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-icon">✨</div>
+          <h3>3D Virtual Stores for Luxury Brands</h3>
+          <div class="work-role">Sole Product Owner · Obsess Inc.</div>
+          <p>Served as sole Product Owner for Charlotte Tilbury, Prada, Ralph Lauren, K18, and Dior, evolving their 3D virtual store journeys. Designed and delivered 3D gamification experiences that increased customer engagement by 30% and platform time by 20%, launching 150+ virtual experiences.</p>
+          <div class="tags">
+            <span class="tag">3D Gamification</span>
+            <span class="tag">E-commerce</span>
+            <span class="tag">Product Strategy</span>
+            <span class="tag">User Engagement</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-icon">🎵</div>
+          <h3>Fisher-Price × John Legend Collaboration</h3>
+          <div class="work-role">Lead Project Manager · Mattel Inc.</div>
+          <p>Orchestrated a 3-fold project collaboration between Fisher-Price and John Legend: created a children's magazine, curated a children's playlist, and produced a launch event at John Legend's California home. Led the iHeartRadio station launch managing cross-functional teams across legal, finance, merchandising, and global stakeholders.</p>
+          <div class="tags">
+            <span class="tag">Celebrity Partnership</span>
+            <span class="tag">Multi-Platform Launch</span>
+            <span class="tag">Stakeholder Management</span>
+            <span class="tag">Budget Management</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-icon">🎮</div>
+          <h3>Roblox Virtual Experiences</h3>
+          <div class="work-role">Product Manager · Obsess Inc.</div>
+          <p>Spearheaded Roblox experiences for luxury brands, strategizing and defining product roadmap from 0 to 1. Created a new revenue stream by enabling brands to reach younger audiences through interactive gaming experiences, integrating AR/VR technologies for Oculus and other platforms.</p>
+          <div class="tags">
+            <span class="tag">Roblox</span>
+            <span class="tag">Gaming</span>
+            <span class="tag">0-to-1 Product</span>
+            <span class="tag">Revenue Generation</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-icon">🛠️</div>
+          <h3>Self-Serve CMS for Luxury Fashion</h3>
+          <div class="work-role">Product Manager · Obsess Inc.</div>
+          <p>Oversaw development of a self-serve content management system enabling luxury fashion brands to manage virtual store content independently. Achieved full scalability, contributing to increased customer satisfaction and retention while reducing operational overhead.</p>
+          <div class="tags">
+            <span class="tag">Content Management</span>
+            <span class="tag">Scalability</span>
+            <span class="tag">B2B SaaS</span>
+            <span class="tag">Customer Success</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card-icon">📊</div>
+          <h3>Creative Operations Optimization</h3>
+          <div class="work-role">Lead Project Manager · Mattel Inc.</div>
+          <p>Transformed Fisher-Price creative department operations using Adobe Workfront. Owned department budgeting, led quarterly reviews, and introduced new PM techniques that increased team productivity by 15%. Managed end-to-end creative workflows for all brand projects.</p>
+          <div class="tags">
+            <span class="tag">Process Optimization</span>
+            <span class="tag">Budget Management</span>
+            <span class="tag">Team Leadership</span>
+            <span class="tag">Adobe Workfront</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        if (mobileMenuToggle && navMenu) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenuToggle.classList.toggle('active');
-                navMenu.classList.toggle('mobile-open');
-            });
-            
-            // Close menu when clicking a link (except dropdown toggle)
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (!link.classList.contains('dropdown-toggle')) {
-                    link.addEventListener('click', () => {
-                        mobileMenuToggle.classList.remove('active');
-                        navMenu.classList.remove('mobile-open');
-                    });
-                }
-            });
+  <!-- ── PERSONAL PROJECTS ── -->
+  <section id="personal-projects">
+    <div class="section-inner">
+      <div class="section-label">Personal Projects</div>
+      <h2>Side Projects & Experiments</h2>
+      <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 15px;">Side projects and experiments where I explore new technologies, build for fun, and push creative boundaries.</p>
+      <div class="personal-card">
+        <div class="work-card-icon">🚀</div>
+        <h3>Projects Coming Soon</h3>
+        <p>I'm currently documenting my personal projects and experiments. Check back soon to see what I'm building!</p>
+      </div>
+    </div>
+  </section>
 
-            // Handle dropdown clicks on mobile
-            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                toggle.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        const dropdown = toggle.closest('.dropdown');
-                        dropdown.classList.toggle('mobile-open');
-                    }
-                });
-            });
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-label">Skills & Expertise</div>
+      <h2>What I Bring to the Table</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Product Strategy & Vision</h3>
+          <ul>
+            <li>0-to-1 Product Development</li>
+            <li>Product Roadmapping</li>
+            <li>Market & Competitive Analysis</li>
+            <li>Go-to-Market Strategy</li>
+            <li>Feature Prioritization</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Emerging Technologies</h3>
+          <ul>
+            <li>Apple Vision Pro & Spatial Computing</li>
+            <li>AR/VR/XR Technologies</li>
+            <li>3D Gamification</li>
+            <li>Roblox Platform Development</li>
+            <li>Oculus & Meta Platforms</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Technical & Analytics</h3>
+          <ul>
+            <li>Software Development Concepts</li>
+            <li>API Integration</li>
+            <li>Data-Driven Decision Making</li>
+            <li>A/B Testing & Analytics</li>
+            <li>System Architecture</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Leadership & Collaboration</h3>
+          <ul>
+            <li>Cross-Functional Team Leadership</li>
+            <li>Stakeholder Management</li>
+            <li>Budget & Resource Management</li>
+            <li>Agile/Scrum Methodologies</li>
+            <li>Executive Communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // Close dropdown menu items on mobile
-            document.querySelectorAll('.dropdown-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuToggle.classList.remove('active');
-                    navMenu.classList.remove('mobile-open');
-                    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('mobile-open'));
-                });
-            });
-        }
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's Build the Future Together</h2>
+      <p>Interested in spatial computing, luxury tech, or innovative product experiences? Let's connect.</p>
+      <div class="contact-links">
+        <a href="mailto:h.datta18@gmail.com" class="contact-link">✉️ Email Me</a>
+        <a href="https://linkedin.com/in/himanshu-datta" target="_blank" class="contact-link">💼 LinkedIn</a>
+        <a href="HimanshuDattaRes26.pdf" target="_blank" class="contact-link">📄 Download Resume</a>
+      </div>
+    </div>
+  </section>
 
-        // Google Analytics Event Tracking
-        function trackGAEvent(category, action, label) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', action, {
-                    'event_category': category,
-                    'event_label': label
-                });
-            }
-        }
+  <!-- ── FOOTER ── -->
+  <footer>
+    © 2025 Himanshu Datta · Crafting immersive experiences at the intersection of technology and product innovation.
+  </footer>
 
-        // Add click tracking to all elements with data-ga-event
-        document.querySelectorAll('[data-ga-event]').forEach(element => {
-            element.addEventListener('click', function() {
-                const category = this.getAttribute('data-ga-category');
-                const action = this.getAttribute('data-ga-event');
-                const label = this.getAttribute('data-ga-label');
-                trackGAEvent(category, action, label);
-            });
-        });
-
-        // Track scroll depth
-        let scrollDepths = [25, 50, 75, 100];
-        let scrollTracked = [];
-
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            
-            scrollDepths.forEach(depth => {
-                if (scrollPercent >= depth && !scrollTracked.includes(depth)) {
-                    scrollTracked.push(depth);
-                    trackGAEvent('Scroll Depth', 'scroll', `${depth}%`);
-                }
-            });
-        });
-
-        // New Year Pop-up
-        setTimeout(() => {
-            const popup = document.getElementById('newYearPopup');
-            popup.classList.add('show');
-            
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                popup.classList.remove('show');
-            }, 5000);
-        }, 4000);
-
-        // Rotating skills animation with smoother transition
-        const skills = [
-            'Spatial Computing',
-            'Apple Vision Pro',
-            '3D Gamification',
-            'Product Strategy',
-            'Cross-functional Leadership',
-            'AR/VR Technologies',
-            'Luxury Brand Experiences',
-            'Agile Methodologies',
-            'Stakeholder Management',
-            'Go-to-Market Strategy'
-        ];
-        
-        let currentSkillIndex = 0;
-        const skillElement = document.getElementById('rotating-skill');
-        
-        // Initialize first skill
-        if (skillElement) {
-            skillElement.textContent = skills[0];
-            skillElement.style.opacity = '1';
-            
-            function rotateSkill() {
-                // Fade out
-                skillElement.style.opacity = '0';
-                
-                setTimeout(() => {
-                    // Change skill
-                    currentSkillIndex = (currentSkillIndex + 1) % skills.length;
-                    skillElement.textContent = skills[currentSkillIndex];
-                    
-                    // Fade in
-                    setTimeout(() => {
-                        skillElement.style.opacity = '1';
-                    }, 50);
-                }, 800);
-            }
-            
-            // Rotate every 4 seconds
-            setInterval(rotateSkill, 4000);
-        }
-
-        // Active navigation highlighting based on scroll position
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        function highlightNavigation() {
-            let scrollY = window.pageYOffset;
-
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-
-        window.addEventListener('scroll', highlightNavigation);
-
-        // Logo click to scroll to top
-        const logoElement = document.querySelector('.logo');
-        if (logoElement) {
-            logoElement.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.style.padding = '1rem 5%';
-            } else {
-                nav.style.padding = '1.5rem 5%';
-            }
-            
-            lastScroll = currentScroll;
-        });
-    </script>
 </body>
 </html>
