@@ -165,11 +165,29 @@
       letter-spacing: -1.5px;
       margin-bottom: 24px;
     }
-    h1 .gradient-text {
+    /* Rotating skills hero */
+    .rotating-skills-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.3em;
+      min-height: 1.2em;
+    }
+    .excel-text {
+      display: inline-block;
+    }
+    .skill-word {
+      display: inline-block;
+      font-weight: 700;
       background: linear-gradient(135deg, #3b82f6, #818cf8, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: none;
+      transition: opacity 0.8s ease-in-out;
+      white-space: normal;
+      word-break: break-word;
     }
     .hero-desc {
       font-size: 18px;
@@ -438,7 +456,8 @@
   <div class="notification-banner" onclick="window.open('HimanshuDattaRes26.pdf', '_blank')" title="View Resume">
     <span class="badge">Open to Work</span>
     <span class="banner-text">
-      Actively seeking <strong>Senior / Staff Product Manager</strong> Click to view my resume
+      Actively seeking <strong>Product Manager</strong> opportunities
+      &nbsp;·&nbsp; Click to view my resume
       <span class="arrow">→</span>
     </span>
   </div>
@@ -463,7 +482,10 @@
     <div class="hero-grid"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">Available for PM Roles · New York, NY</div>
-      <h1>I specialize in<br><span class="gradient-text">Product Management</span></h1>
+      <h1 class="rotating-skills-hero">
+        <span class="excel-text">I specialize in</span>
+        <span class="skill-word" id="rotating-skill"></span>
+      </h1>
       <p class="hero-desc">
         Product Manager specializing in emerging technologies and creative innovation. I transform complex technical challenges into intuitive user experiences, leading cross-functional teams to deliver products that drive engagement, revenue growth, and brand excellence.
       </p>
@@ -718,8 +740,44 @@
 
   <!-- ── FOOTER ── -->
   <footer>
+    © 2025 Himanshu Datta · Crafting immersive experiences at the intersection of technology and product
     © 2025 Himanshu Datta · Crafting immersive experiences at the intersection of technology and product innovation.
   </footer>
+
+  <script>
+    // Rotating skills animation
+    const skills = [
+      'Spatial Computing',
+      'Apple Vision Pro',
+      '3D Gamification',
+      'Product Strategy',
+      'Cross-functional Leadership',
+      'AR/VR Technologies',
+      'Luxury Brand Experiences',
+      'Agile Methodologies',
+      'Stakeholder Management',
+      'Go-to-Market Strategy'
+    ];
+
+    let currentSkillIndex = 0;
+    const skillElement = document.getElementById('rotating-skill');
+
+    if (skillElement) {
+      skillElement.textContent = skills[0];
+      skillElement.style.opacity = '1';
+
+      function rotateSkill() {
+        skillElement.style.opacity = '0';
+        setTimeout(() => {
+          currentSkillIndex = (currentSkillIndex + 1) % skills.length;
+          skillElement.textContent = skills[currentSkillIndex];
+          setTimeout(() => { skillElement.style.opacity = '1'; }, 50);
+        }, 800);
+      }
+
+      setInterval(rotateSkill, 4000);
+    }
+  </script>
 
 </body>
 </html>
